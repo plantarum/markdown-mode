@@ -24,6 +24,8 @@
     -   Enable flyspell check at yaml metadata[GH-560][]
     -   Clean up Makefile
     -   Support to display local image with percent encoding file path
+    -   Add ability to resize inline image display (`markdown-toggle-inline-images`) without Imagemagick installed in the computer (emulating Org Mode)
+    -   Support including braces around the language specification in GFM code blocks
 
 *   Bug fixes:
     -   Fix remaining flyspell overlay in code block or comment issue [GH-311][]
@@ -35,7 +37,7 @@
     -   Fix wrong italic fontification just after code block [GH-548][]
     -   Fix too indended list face issue [GH-569][]
     -   Fix creating imenu index issue when there is no level-1 header too[GH-571][]
-    -   Fix markdown-shifttab for content after yaml header[GH-576][]
+    -   Fix highlighting consecutive HTML comments[GH-584][]
 
   [gh-290]: https://github.com/jrblevin/markdown-mode/issues/290
   [gh-311]: https://github.com/jrblevin/markdown-mode/issues/311
@@ -57,7 +59,7 @@
   [gh-560]: https://github.com/jrblevin/markdown-mode/issues/560
   [gh-569]: https://github.com/jrblevin/markdown-mode/issues/569
   [gh-571]: https://github.com/jrblevin/markdown-mode/issues/571
-  [gh-576]: https://github.com/jrblevin/markdown-mode/issues/576
+  [gh-584]: https://github.com/jrblevin/markdown-mode/issues/584
 
 # Markdown Mode 2.4
 

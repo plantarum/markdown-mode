@@ -2618,6 +2618,14 @@ Test currently fails because this case isn't handled properly."
    (markdown-test-range-has-face 1 19 'markdown-comment-face)
    (should-not (markdown-range-property-any 1 19 'face '(markdown-inline-code-face)))))
 
+(ert-deftest test-markdown-font-lock/consecutive-html-comments ()
+  "Test for consecutive HTML comments.
+Detail: https://github.com/jrblevin/markdown-mode/issues/584"
+  (markdown-test-string
+   "Main text <!--a comment--><!--another comment-->."
+   (markdown-test-range-has-face 11 26 'markdown-comment-face)
+   (markdown-test-range-has-face 27 28 'markdown-comment-face)))
+
 (ert-deftest test-markdown-font-lock/kbd ()
   "Test font lock for <kbd> tags."
   (markdown-test-string "<kbd>C-c <</kbd>"
@@ -6203,6 +6211,13 @@ Details: https://github.com/jrblevin/markdown-mode/issues/534"
                    "1.  foo\n\n    ``` elisp\n    bar\n    ```\n\n"))
     (should (equal (buffer-substring-no-properties (point) (point-max))
                    "\n    bar\n    ```\n\n"))))
+
+(ert-deftest test-markdown-gfm/markdown-code-block-braces ()
+  "Test `markdown-gfm-use-electric-backquote'."
+  (markdown-test-string-gfm ""
+    (let ((markdown-code-block-braces t))
+      (markdown-insert-gfm-code-block "elisp")
+      (should (equal (buffer-string) "```{elisp}\n\n```")))))
 
 (ert-deftest test-markdown-gfm/gfm-parse-buffer-for-languages ()
   "Parse buffer for existing languages for `markdown-gfm-used-languages' test."
