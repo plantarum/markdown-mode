@@ -79,9 +79,7 @@ example; adjust settings as desired):
 ```lisp
 (use-package markdown-mode
   :ensure t
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
+  :mode ("README\\.md\\'" . gfm-mode)
   :init (setq markdown-command "multimarkdown"))
 ```
 
@@ -905,6 +903,10 @@ provides an interface to all of the possible customizations:
   * `markdown-translate-filename-function` - A function to be used to
     translate filenames in links.
 
+  * `markdown-unordered-list-item-prefix` - When non-nil,
+    `markdown-insert-list-item` inserts enumerated numbers for
+    ordered list marker. While nil, it always inserts `1.`.
+
 Additionally, the faces used for syntax highlighting can be modified to
 your liking by issuing <kbd>M-x customize-group RET markdown-faces</kbd>
 or by using the "Markdown Faces" link at the bottom of the mode
@@ -927,13 +929,12 @@ are also supported.  Since some wikis reverse these components, set
 is also non-nil, Markdown Mode will highlight wiki links with
 missing target file in a different color.  By default, Markdown
 Mode only searches for target files in the current directory.
-Search in subdirectories can be enabled by setting
-`markdown-wiki-link-search-subdirectories` to a non-nil value.
-Sequential parent directory search (as in [Ikiwiki][]) can be
-enabled by setting `markdown-wiki-link-search-parent-directories`
-to a non-nil value.
+You can control search type by setting `markdown-wiki-link-search-type`.
+This value type is a symbol list. Possible values are
 
-[Ikiwiki]: https://ikiwiki.info
+- `sub-directories` : search in sub directories
+- `parent-directories` : search in parent directories
+- `project` : search under project root
 
 [SmartyPants][] support is possible by customizing `markdown-command`.
 If you install `SmartyPants.pl` at, say, `/usr/local/bin/smartypants`,

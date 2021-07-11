@@ -10,6 +10,9 @@
         to automatically define a default link text before prompting the user.
     -   Option to inhibit the prompt for a tooltip text via
         `markdown-disable-tooltip-prompt`.
+    -   Introduce `markdown-ordered-list-enumeration` variable [GH-587][]
+    -   Search wiki link under project
+    -   Add `markdown-insert-foldable-block` function [GH-598][]
 
 *   Improvements:
     -   Correct indirect buffer's indentation in `markdown-edit-code-block` [GH-375][]
@@ -26,8 +29,10 @@
     -   Support to display local image with percent encoding file path
     -   Add ability to resize inline image display (`markdown-toggle-inline-images`) without Imagemagick installed in the computer (emulating Org Mode)
     -   Support including braces around the language specification in GFM code blocks
+    -   Improve `markdown-insert-{bold,italic}` when region starts with spaces[GH-613][]
 
 *   Bug fixes:
+    -   Fix issue with `nil` being returned from `markdown-imenu-create-nested-index` [GH-578][]
     -   Fix remaining flyspell overlay in code block or comment issue [GH-311][]
     -   Fix inline URL regular expression which starts/ends with spaces [GH-514][]
     -   Fix GFM italic fontification for one character [GH-524][]
@@ -38,6 +43,9 @@
     -   Fix too indended list face issue [GH-569][]
     -   Fix creating imenu index issue when there is no level-1 header too[GH-571][]
     -   Fix highlighting consecutive HTML comments[GH-584][]
+    -   Fix `markdown-follow-thing-at-point` failing on subdir search [GH-590][]
+    -   Fix `markdown-table-backward-cell' so it always goes back a single cell
+    -   Fix 'markdown-table-align' to detect delimiters surrounded by spaces
 
   [gh-290]: https://github.com/jrblevin/markdown-mode/issues/290
   [gh-311]: https://github.com/jrblevin/markdown-mode/issues/311
@@ -60,6 +68,10 @@
   [gh-569]: https://github.com/jrblevin/markdown-mode/issues/569
   [gh-571]: https://github.com/jrblevin/markdown-mode/issues/571
   [gh-584]: https://github.com/jrblevin/markdown-mode/issues/584
+  [gh-587]: https://github.com/jrblevin/markdown-mode/issues/587
+  [gh-590]: https://github.com/jrblevin/markdown-mode/pull/590
+  [gh-598]: https://github.com/jrblevin/markdown-mode/pull/598
+  [gh-613]: https://github.com/jrblevin/markdown-mode/issues/613
 
 # Markdown Mode 2.4
 
